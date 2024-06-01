@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, height=device-height,initial-scale=1.0">
+        <title>Messages</title>
+        <link rel="stylesheet" href="/static/style.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.5.1/socket.io.js"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    </head>
+    <body>
+        <div class="chat-app">
+            <div class="sidebar" id="side-pane">
+                <div id="profile-section">
+                    <img class="profile-pic" src="/static/files/{{data.dp}}" style="background-color:white;width:50px;height:50px;margin:10px" />
+                </div>
+                <div class="search-section">
+                    <button onclick="showsearchbar()" class="new-conv">New Chat</button>
+                </div>
+                <!-- List of conversations -->
+                <div id="heregoestheconv"></div>
+                <!--
+        <div class="conversation active" user-username='someusername'><img src="/static/files/default.jpg" alt="Profile Picture" class="profile-pic"><div class="conversation-info"><span class="username">User 1</span><span class="unread-messages">2</span><p class="last-message">Last message...</p></div></div><div class="conversation active"><img src="/static/files/default.jpg" alt="Profile Picture" class="profile-pic"><div class="conversation-info"><span class="username">User 1</span><span class="unread-messages">2</span><p class="last-message">Last message...</p></div></div>
+        
+        -->
+            </div>
+            <div class="main">
+                <!-- Chat area -->
+                <div id="peer-section" style="display:none">
+                    <div style="width:70px;height:70px;display:inline">
+                        <img id="my-peer-dp" onclick="showbio()" src="/static/files/default.jpg" style="display:inline;border-radius:50%;width:50px;height:50px;margin:10px;" />
+                    </div>
+                    <div style="height:20px;font-size:20px;display:inline;position:absolute;margin-top:25px;font-family: Arial, sans-serif;" id="peer-fullname"> Nitin Kumar </div>
+                </div>
+                <div class="conversation-area" id="conv-area">
+                    <!--
+            <div class="conversation" id="sent"><div> class="message"></div><div class="mesg-time"></div></div>
+            
+-->
+                </div>
+                <!-- Input area -->
+                <div class="input-area" style="display:none" id="my-input-area">
+                    <form id="mesgform">
+                        <input type="text" id="sender-id" name="sender-id" value="{{data.username}}" style="display:none">
+                        <input type="text" id="receiver-id" name="receiver-id" value="" style="display:none">
+                        <input type="text" id="send-mesg" placeholder="Type your message..." name="send-mesg">
+                        <button>Send</button>
+                    </form>
+                </div>
+                <div id="user-profile-data" style="display:none">
+                    <img id="back-arrow" src="/static/files/arrow.png" style="width:50px;height:50px; position:absolute; margin:20px" onclick="hideprofile()" />
+                    <img id="user-profile-dp" src="/static/files/default.jpg" style="border-radius:50%;width:200px;height:200px;margin-top:100px;margin-left:calc((100% - 300px)/2)" onclick="hideprofile()" />
+                    <div style="width:100%;border-top:2px #e6e6e6 solid;"></div>
+                    <div style="font-weight:bold;margin-left:10px;padding-top:10px;">About:</div>
+                    <div id="user-profile-about" style="width:40%;font-size:14px;margin-left:10px;margin-top:25px;"> property should hold several font names as a "fallback" system, to ensure maximum compatibility between browsers/operating systems. Start with the font you want, and end with a generic family (to let the browser pick a similar font in the generic family, if no other fonts are available). The font names should be separated with a comma. Read more about fallback fonts in the </div>
+                </div>
+            </div>
+            <div class="container-search" id="search-container" style="display:none">
+                <img id="search-close-bar" src="/static/files/arrow.png" style="width:50px;height:50px; position:absolute; margin:20px" onclick="hidesearchbar()" />
+                <div id="my-mesg-box">
+                    <form method="post" id="myForm" onsubmit="searchUser(event)">
+                        <div class="form-group">
+                            <input type="text" id="search-username" name="search-username" required placeholder="Search username">
+                        </div>
+                        <button type="submit">Search</button>
+                        <div id="myresponse"></div>
+                    </form>
+                    <div id="here-goes-the-result">
+                        <!--
+                <div class="search-result" "><img src="/static/files/default.jpg" id="searched-user-dp"/><div  id="searched-fullname">
+                    Nitin Kumar
+                </div></div>
+            -->
+                    </div>
+                </div>
+            </div>
+            <script src="/static/handle.js"></script>
+    </body>
+</html>

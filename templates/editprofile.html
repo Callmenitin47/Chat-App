@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Profile</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+<header>
+<h1>Edit Profile</h1>
+</header>
+<div class="login-container">
+    <form id="myForm" method="post"  action='/updateprofile' onsubmit="submitEditForm(event)" class="login-form" enctype='multipart/form-data'>
+        <img src="{{data.dp}}" alt="Current Profile Image" id="profile-image">
+    <input type="file" name='dp' id="upload-photo" name="upload-photo" style="display: none;">
+    <input type="text" id="username" name="username" style="display:none" value="{{data.username}}">
+    <button type="button" onclick="document.getElementById('upload-photo').click()">Upload Photo</button>
+        <div class="form-group" style="margin-top:10px">
+            <input type="text" id="bio" name="bio" value="{{data.bio}}">
+        </div>
+
+        <button type="submit" id="register-submit">Update</button>
+    </form>
+</div>
+<script src=/static/script.js></script>
+</body>
+</html>
