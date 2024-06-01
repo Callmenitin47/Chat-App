@@ -1,0 +1,474 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  height: 100%;
+  width: 100%;
+}
+
+header {
+  background-color: #023047;
+  color: #fff;
+  padding: 5px;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+  border-radius: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  border-radius: 8px;
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+#myresponse {
+  margin-top: 20px;
+  width: 100%;
+  text-align: center;
+  height: 20px;
+  font-size: 18px;
+  padding: 2px;
+}
+
+a {
+  text-decoration: none;
+}
+
+.login-container,
+.signup-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  margin-top: 5%;
+  /* Adjust for header height */
+}
+
+.signup-container {
+  margin-top: 0;
+}
+
+.login-signup {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-form,
+.register-form {
+  width: 300px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.form-group input {
+  width: 95%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+button#login-submit,
+button#register-submit {
+  width: 100%;
+  padding: 10px;
+  background-color: #023047;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #116470;
+}
+
+.container {
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.profile-section,
+.status-section {
+  margin-bottom: 30px;
+}
+
+h2 {
+  margin-bottom: 10px;
+}
+
+#profile-image {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  margin-bottom: 20px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+input[type="file"] {
+  margin-bottom: 10px;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .container {
+    padding: 10px;
+  }
+}
+
+div.chat-app {
+  height: 100%;
+  width: 100%;
+  display: block;
+  position: fixed;
+}
+
+.sidebar {
+  width: 30%;
+  background-color: #f0f0f0;
+  height: 100%;
+  position: fixed;
+  overflow-y: scroll;
+  margin: 0px;
+  padding: 0px;
+}
+
+#profile-section {
+  width: 100%;
+  background-color: #023047;
+}
+
+.sidebar .conversation {
+  display: flex;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.sidebar .conversation.active {
+  background-color: white;
+}
+
+.sidebar .conversation.active:hover {
+  background-color: #e6e6e6;
+}
+
+.sidebar .profile-pic {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.sidebar .conversation-info {
+  margin-left: 10px;
+}
+
+.sidebar .username {
+  margin: 0;
+}
+
+.sidebar .unread-messages {
+  background-color: #007bff;
+  color: white;
+  padding: 5px;
+  border-radius: 0%;
+}
+
+div.last-message {
+  font-size: 14px;
+  margin-top: 5px;
+  text-overflow: ellipsis;
+  height: 16px;
+  overflow: hidden;
+}
+
+.main {
+  height: 100%;
+  width: 70%;
+  margin-left: 30%;
+  position: float;
+  margin-left: 30%;
+  padding: 0px;
+}
+
+.conversation-area {
+  width: 100%;
+  height: calc(100% - 70px - 60px);
+  overflow-y: scroll;
+}
+
+.conversation-area .conversation {
+  display: flex;
+}
+
+.conversation-area .profile-pic {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.sent .message {
+  background-color: #023047;
+  color: white;
+  padding: 10px;
+  border-radius: 10px;
+  margin-left: auto;
+  /* Push sent messages to the right */
+  margin-right: 10px;
+  max-width: 70%;
+  /* Limit message width */
+  display: block;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.received .message {
+  background-color: #f0f0f0;
+  color: #333;
+  padding: 10px;
+  border-radius: 10px;
+  margin-left: 10px;
+  max-width: 70%;
+  /* Limit message width */
+  display: block;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.input-area {
+  background-color: #f0f0f0;
+  width: 100%;
+  text-align: center;
+  height: 60px;
+}
+
+.input-area input[type="text"] {
+  border-radius: 5px;
+  padding: 5px;
+  border: 1px solid #ccc;
+  margin-right: 10px;
+  width: 600px;
+  height: 30px;
+  margin-top: 10px;
+}
+
+.input-area button {
+  padding: 10px 20px;
+  border: none;
+  background-color: #023047;
+  color: white;
+  border-radius: 5px;
+  width: 100px;
+  cursor: pointer;
+}
+
+.mytext {
+  height: 70px;
+  width: 70px;
+  position: absolute;
+  margin-left: 80px;
+  margin-top: 0px;
+  display: inline;
+}
+
+#peer-section {
+  height: 70px;
+  width: 100%;
+  border-bottom: 1px #e4ebe5 solid;
+}
+
+#user-profile-data {
+  height: 100%;
+  width: 70%;
+  position: fixed;
+  top: 0;
+  left: 30%;
+  margin: 0px;
+  background-color: white;
+}
+
+img#back-arrow:hover,
+img#my-peer-dp:hover {
+  cursor: pointer;
+}
+
+.container-search {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 30%;
+  height: 100%;
+  background-color: white;
+}
+
+.search-user {
+  width: 80%;
+  padding: 10px;
+  font-size: 16px;
+}
+
+.message-input {
+  width: 80%;
+  padding: 10px;
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+.send-button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #023047;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+#search-close-bar:hover {
+  cursor: pointer;
+}
+
+.search-section {
+  width: 100%;
+  text-align: center;
+}
+
+button.new-conv {
+  width: 30%;
+  border-radius: 3px;
+  padding: 10px;
+  background-color: #023047;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  display: inline;
+  color: white;
+}
+
+#search-window {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 30%;
+  height: 100%;
+
+}
+
+#my-mesg-box,
+#my-group-box {
+  position: absolute;
+  width: 80%;
+  margin-left: 10%;
+  top: 100px;
+
+}
+
+.search-result {
+  margin-top: 10px;
+  border: 1px gray solid;
+}
+
+.search-result:hover {
+
+  cursor: pointer;
+}
+
+#searched-user-dp {
+  width: 50px;
+  height: 50px;
+  display: inline;
+  border-radius: 50%;
+  margin-left: 5px;
+}
+
+#searched-fullname {
+  height: 20px;
+  font-size: 18px;
+  display: inline;
+  position: absolute;
+  margin-left: 15px;
+  margin-top: 18px;
+  font-family: Arial, sans-serif;
+
+
+}
+
+
+.message-format {
+  width: 100%;
+
+}
+
+.sent-message {
+  background-color: #023047;
+  color: white;
+  padding: 10px;
+  border-radius: 10px;
+  margin-left: auto;
+  /* Push sent messages to the right */
+  margin-right: 10px;
+  margin-top: 10px;
+  /* Limit message width */
+  width: auto;
+  display: inline-block;
+  max-width: 70%;
+
+}
+
+.received-message {
+  background-color: #f0f0f0;
+  color: #333;
+  padding: 10px;
+  border-radius: 10px;
+  margin-left: 10px;
+  margin-top: 10px;
+  display: inline-block;
+  width: auto;
+  max-width: 70%;
+
+
+}
+
+.mesg-time {
+
+  font-size: 10px;
+  color: gray;
+  margin-top: 5px;
+}
+
+.form-field {
+
+  margin-bottom: 10px;
+}
